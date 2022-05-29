@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+   db:
+      image: mysql:8
+      restart: always
+      hostname: mysql
+      container_name: mysql
+      environment:
+         MYSQL_DATABASE: 'net'
+         MYSQL_USER: 'net'
+         MYSQL_PASSWORD: 'net'
+         MYDATA: /var/lib/mysql/mydata
+      ports:
+         - '3306:3306'
+      expose:
+         - '3306'
+      volumes:
+         - ./:/app
+volumes:
+   my-db: 
